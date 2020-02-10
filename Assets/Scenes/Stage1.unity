@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 52837432}
   - component: {fileID: 52837431}
   m_Layer: 5
-  m_Name: Scrollbar Vertical
+  m_Name: ResolutionScrollbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 64969112}
   - component: {fileID: 64969111}
   m_Layer: 5
-  m_Name: Viewport
+  m_Name: LanguageView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -547,7 +547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 83633730}
   m_Layer: 5
-  m_Name: Content
+  m_Name: Languages
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1831,7 +1831,7 @@ GameObject:
   - component: {fileID: 389631385}
   - component: {fileID: 389631384}
   m_Layer: 5
-  m_Name: Viewport
+  m_Name: ResolutionView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5101,7 +5101,7 @@ GameObject:
   - component: {fileID: 1293536294}
   - component: {fileID: 1293536295}
   m_Layer: 5
-  m_Name: GameUI
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6140,7 +6140,7 @@ GameObject:
   - component: {fileID: 1421861519}
   - component: {fileID: 1421861518}
   m_Layer: 5
-  m_Name: Languages
+  m_Name: LanguagesWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13130,7 +13130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1748240798}
   m_Layer: 5
-  m_Name: Content
+  m_Name: Resolutions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13405,7 +13405,7 @@ GameObject:
   - component: {fileID: 1809430434}
   - component: {fileID: 1809430433}
   m_Layer: 5
-  m_Name: Resolutions
+  m_Name: ResolutionsWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13753,7 +13753,7 @@ GameObject:
   - component: {fileID: 1862310475}
   - component: {fileID: 1862310474}
   m_Layer: 5
-  m_Name: Scrollbar Vertical
+  m_Name: LanguageScrollbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

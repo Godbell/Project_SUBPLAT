@@ -4077,7 +4077,7 @@ GameObject:
   - component: {fileID: 725507476}
   - component: {fileID: 725507477}
   m_Layer: 5
-  m_Name: Content
+  m_Name: Languages
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4928,7 +4928,7 @@ GameObject:
   - component: {fileID: 975754802}
   - component: {fileID: 975754803}
   m_Layer: 5
-  m_Name: Content
+  m_Name: Resolutions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5321,7 +5321,7 @@ GameObject:
   - component: {fileID: 1047541733}
   - component: {fileID: 1047541732}
   m_Layer: 5
-  m_Name: Resolutions
+  m_Name: ResolutionsWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7927,7 +7927,7 @@ GameObject:
   - component: {fileID: 1582210421}
   - component: {fileID: 1582210420}
   m_Layer: 5
-  m_Name: Option_BackBtn
+  m_Name: BackBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9793,7 +9793,7 @@ GameObject:
   - component: {fileID: 1958350330}
   - component: {fileID: 1958350329}
   m_Layer: 5
-  m_Name: Languages
+  m_Name: LanguagesWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
