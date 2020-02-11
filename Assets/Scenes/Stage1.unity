@@ -6966,7 +6966,7 @@ GameObject:
   - component: {fileID: 1683680225}
   m_Layer: 0
   m_Name: Easy Save 3 Manager
-  m_TagString: Untagged
+  m_TagString: SLManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

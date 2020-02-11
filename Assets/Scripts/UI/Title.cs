@@ -18,38 +18,38 @@ public class Title : MonoBehaviour
 
     [SerializeField]
     private Text ScreenSizeText;
-    
-    static int ScreenSizeNumber = 0;
+
+    public SaveLoadManager SLManager;
+
+    private int ResolutionNumber = 0;
     private int[] ScreenWidth = { 0, 640, 800, 1024, 1280, 1920 };
-    private string[] ScreenSizeString = { "Full Screen", "640x360", "800x450", "1024x576", "1280x720", "1920x1080" };
+    private string[] ResolutionString = { "Full Screen", "640x360", "800x450", "1024x576", "1280x720", "1920x1080" };
 
     void Start()
     {
         distance = mainCamera.transform.position - loby.transform.position;
-        if(ScreenSizeNumber == 0)
-        {
-            FullScreen_Ctr();
-        }
-        ScreenSizeText.text = ScreenSizeString[ScreenSizeNumber];
+        ResolutionNumber = SLManager.LoadResolution();
+        Resolution_Ctr(ResolutionNumber);
+        ScreenSizeText.text = ResolutionString[ResolutionNumber];
     }
 
     void Update()
     {
         if (OptionOpen)
         {
-            if (mainCamera.transform.position.z > 118)
+            if (mainCamera.transform.position.z > 100)
             {
                 option.GetComponent<CanvasGroup>().interactable = true;
             }
-            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, option.transform.position + distance, 2.3f * Time.deltaTime);
+            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, option.transform.position + distance, 4f * Time.deltaTime);
         }
         else
         {
-            if (mainCamera.transform.position.z < -9.7)
+            if (mainCamera.transform.position.z < -8)
             {
                 loby.GetComponent<CanvasGroup>().interactable = true;
             }
-            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, loby.transform.position + distance, 2.3f * Time.deltaTime);
+            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, loby.transform.position + distance, 4f * Time.deltaTime);
         }
     }
 
@@ -81,18 +81,19 @@ public class Title : MonoBehaviour
         Screen.SetResolution(maxResolution.width, maxResolution.height, true);
     }
 
-    public void Resolution_Ctr(int _ScreenSizeNumber)
+    public void Resolution_Ctr(int _ResolutionNumber)
     {
-        if(_ScreenSizeNumber != 0)
+        if(_ResolutionNumber != 0)
         {
-            int screenHeight = ScreenWidth[_ScreenSizeNumber] * 9 / 16;
-            Screen.SetResolution(ScreenWidth[_ScreenSizeNumber], screenHeight, false);
+            int ScreenHeight = ScreenWidth[_ResolutionNumber] * 9 / 16;
+            Screen.SetResolution(ScreenWidth[_ResolutionNumber], ScreenHeight, false);
         }
         else
         {
             FullScreen_Ctr();
         }
-        ScreenSizeText.text = ScreenSizeString[_ScreenSizeNumber];
-        ScreenSizeNumber = _ScreenSizeNumber;
+        ScreenSizeText.text = ResolutionString[_ResolutionNumber];
+        ResolutionNumber = _ResolutionNumber;
+        SLManager.SaveResolution(ResolutionNumber);
     }
 }

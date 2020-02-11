@@ -8,7 +8,7 @@ public class JumpTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SoundManager.instance.PlayES("Jump");
+            SoundManager.instance.PlaySFX("Jump");
         }
     }
 }

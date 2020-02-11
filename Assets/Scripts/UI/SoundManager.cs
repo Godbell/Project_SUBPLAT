@@ -29,6 +29,8 @@ public class SoundManager : MonoBehaviour
     }
     #endregion singleton
 
+    private SaveLoadManager SLManager;
+
     [Header("사운드 등록")]
     [SerializeField] Sound[] bgmSounds;
     [SerializeField] Sound[] effectSounds;
@@ -43,12 +45,16 @@ public class SoundManager : MonoBehaviour
 
     private float MasterVolume = 0.5f;
     private float BgmVolume = 0.5f;
-    private float ESVolume = 0.5f;
+    private float SFXVolume = 0.5f;
 
     void Start()
     {
         volumeSlider = new Slider[3];
         PlayBgm("Title");
+        SLManager = GameObject.FindWithTag("SLManager").GetComponent<SaveLoadManager>();
+        MasterVolume = SLManager.LoadSound("Master");
+        BgmVolume = SLManager.LoadSound("Bgm");
+        SFXVolume = SLManager.LoadSound("SFX");
     }
 
     void Update()
@@ -61,11 +67,13 @@ public class SoundManager : MonoBehaviour
 
             volumeSlider[0].value = MasterVolume;
             volumeSlider[1].value = BgmVolume;
-            volumeSlider[2].value = ESVolume;
+            volumeSlider[2].value = SFXVolume;
 
             volumeSlider[0].onValueChanged.AddListener(SetMasterVolume);
             volumeSlider[1].onValueChanged.AddListener(SetBgmVolume);
-            volumeSlider[2].onValueChanged.AddListener(SetESVolume);
+            volumeSlider[2].onValueChanged.AddListener(SetSFXVolume);
+
+            SLManager = GameObject.FindWithTag("SLManager").GetComponent<SaveLoadManager>();
         }
         bgmPlayer.volume = MasterVolume * BgmVolume;
     }
@@ -85,7 +93,7 @@ public class SoundManager : MonoBehaviour
         return;
     }
 
-    public void PlayES(string _soundName)
+    public void PlaySFX(string _soundName)
     {
         for (int soundCheck = 0; soundCheck < effectSounds.Length; soundCheck++)
         {
@@ -96,7 +104,7 @@ public class SoundManager : MonoBehaviour
                     if(!(effectSoundPlayer[playCheck].isPlaying))
                     {
                         effectSoundPlayer[playCheck].clip = effectSounds[soundCheck].clip;
-                        effectSoundPlayer[playCheck].volume = MasterVolume * ESVolume;
+                        effectSoundPlayer[playCheck].volume = MasterVolume * SFXVolume;
                         effectSoundPlayer[playCheck].PlayOneShot(effectSoundPlayer[playCheck].clip);
                         return;
                     }
@@ -112,15 +120,18 @@ public class SoundManager : MonoBehaviour
     public void SetMasterVolume(float value)
     {
         MasterVolume = value;
+        SLManager.SaveSound("Master", MasterVolume);
     }
 
     public void SetBgmVolume(float value)
     {
         BgmVolume = value;
+        SLManager.SaveSound("Bgm", BgmVolume);
     }
 
-    public void SetESVolume(float value)
+    public void SetSFXVolume(float value)
     {
-        ESVolume = value;
+        SFXVolume = value;
+        SLManager.SaveSound("SFX", SFXVolume);
     }
 }

@@ -46,4 +46,24 @@ public class SaveLoadManager : MonoBehaviour
     {
         player.transform.position = ES2.Load<Vector3>("playerPosition.txt");
     }
+
+    public void SaveSound(string _soundName, float _volume)
+    {
+        ES2.Save(_volume, _soundName + "Volume.txt");
+    }
+
+    public float LoadSound(string _soundName)
+    {
+        return ES2.Load<float>(_soundName + "Volume.txt");
+    }
+
+    public void SaveResolution(int _ResolutionNumber)
+    {
+        ES2.Save(_ResolutionNumber, "ResolutionNumber.txt");
+    }
+
+    public int LoadResolution()
+    {
+        return ES2.Load<int>("ResolutionNumber.txt");
+    }
 }
