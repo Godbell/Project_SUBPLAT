@@ -4,16 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
+/*사운드의 이름을 설정하고 오디오 클립을 넣는 클래스*/
 [System.Serializable]
 public class Sound
 {
-    public string soundName;
-    public AudioClip clip;
+    public string soundName;    //함수로 Sound를 찾을 때 이용
+    public AudioClip clip;      //재생시킬 클립
 }
 
 public class SoundManager : MonoBehaviour
 {
+    //다른 스크립트에서 Sound 매니저를 이용할 때 사용
     static public SoundManager instance;
+
+    //씬을 넘어갈 때 같이 넘어가도록 싱글톤한 것
     #region singleton
     void Awake()
     {
@@ -31,13 +35,16 @@ public class SoundManager : MonoBehaviour
 
     private SaveLoadManager SLManager;
 
+    /*필요한 Sound를 list로 저장, Inspector창에서 추가*/
     [Header("사운드 등록")]
     [SerializeField] Sound[] bgmSounds;
     [SerializeField] Sound[] effectSounds;
 
+    /*브금을 재생할 AudioSource를 등록*/
     [Header("브금 플레이어")]
     [SerializeField] AudioSource bgmPlayer;
 
+    /*효과음을 재생할 AudioSource를 등록*/
     [Header("효과음 플레이어")]
     [SerializeField] AudioSource[] effectSoundPlayer;
     
@@ -78,6 +85,7 @@ public class SoundManager : MonoBehaviour
         bgmPlayer.volume = MasterVolume * BgmVolume;
     }
 
+    //bgmSounds에 들어있는 Sound중 이름이 같은 Sound의 클립을 재생
     public void PlayBgm(string _soundName)
     {
         for(int soundCheck = 0; soundCheck < bgmSounds.Length; soundCheck++)
@@ -93,6 +101,7 @@ public class SoundManager : MonoBehaviour
         return;
     }
 
+    //effectSounds에 들어있는 Sound중 이름이 같은 Sound의 클립을 재생
     public void PlaySFX(string _soundName)
     {
         for (int soundCheck = 0; soundCheck < effectSounds.Length; soundCheck++)
