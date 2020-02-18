@@ -9481,6 +9481,7 @@ MonoBehaviour:
   loby: {fileID: 2076149595}
   option: {fileID: 1175085027}
   ScreenSizeText: {fileID: 1442483910}
+  SLManager: {fileID: 2104508883}
 --- !u!1 &2062222199
 GameObject:
   m_ObjectHideFlags: 0
