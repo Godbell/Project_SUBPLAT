@@ -6,21 +6,21 @@ using UnityEngine.EventSystems;
 using System.IO;
 
 [System.Serializable]
-public class Collections
+public class Collection
 {
     public string name;
     public string explain;
 }
 
 [System.Serializable]
-public class CollectionsList
+public class CollectionList
 {
-    public List<Collections> Collections = new List<Collections>();
+    public List<Collection> Collections = new List<Collection>();
 }
 
 public class CollectionManager : MonoBehaviour,IPointerEnterHandler
 {
-    private CollectionsList CollectionsList = new CollectionsList();
+    private CollectionList CollectionList = new CollectionList();
 
     public Text c_name;
     public Text c_explain;
@@ -32,7 +32,7 @@ public class CollectionManager : MonoBehaviour,IPointerEnterHandler
         TextAsset asset = Resources.Load("Collections") as TextAsset;
         if (asset != null)
         {
-            CollectionsList = JsonUtility.FromJson<CollectionsList>(asset.text);
+            CollectionList = JsonUtility.FromJson<CollectionList>(asset.text);
         }
         else
         {
@@ -42,8 +42,8 @@ public class CollectionManager : MonoBehaviour,IPointerEnterHandler
 
     public void collection_show(int number)
     {
-        c_name.text = CollectionsList.Collections[number].name;
-        c_explain.text = CollectionsList.Collections[number].explain;
+        c_name.text = CollectionList.Collections[number].name;
+        c_explain.text = CollectionList.Collections[number].explain;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
