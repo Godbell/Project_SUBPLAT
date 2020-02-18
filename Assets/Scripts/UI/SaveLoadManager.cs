@@ -57,13 +57,13 @@ public class SaveLoadManager : MonoBehaviour
         return ES2.Load<float>(_soundName + "Volume.txt");
     }
 
-    public void SaveResolution(int _ResolutionNumber)
+    public void SaveResolution(int _resolutionNumber)
     {
-        ES2.Save(_ResolutionNumber, "ResolutionNumber.txt");
+        ES2.Save(_resolutionNumber, "resolutionNumber.txt");
     }
 
     public int LoadResolution()
     {
-        return ES2.Load<int>("ResolutionNumber.txt");
+        return ES2.Load<int>("resolutionNumber.txt");
     }
 }
